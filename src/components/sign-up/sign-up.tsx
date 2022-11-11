@@ -21,7 +21,7 @@ export const SignUp: FC<SignUpProps> = ({onSubmit, title ='Регистраци�
             email: email,
             password: password
         }
-        const res = await fetch('http://localhost:5000/auth/sign-up', {
+        const res = await fetch('http://213.219.213.0:5000/auth/sign-up', {
             method: 'POST',
             headers:{
                 'Content-Type':'application/json'
