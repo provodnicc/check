@@ -2,13 +2,20 @@ import React, { FC, useState } from "react";
 import { $AUTH_API } from "../../hooks/api";
 import './sign-up.css'
 interface SignUpProps{
+    user?: User
     title?: string ,
     onSubmit?: (email: string, password: string)=>void
+}
+
+export interface User{
+    id: number,
+    email:string,
+    password: string
 }
 export const SignUp: FC<SignUpProps> = ({onSubmit, title ='Регистрация'})=>{
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    
+    const [user, setUser] = useState<User>({id:0,email:'',password:''})
     const submitSend = onSubmit? onSubmit: SendData
     
     async function SendData(email: string, password: string){
@@ -28,7 +35,7 @@ export const SignUp: FC<SignUpProps> = ({onSubmit, title ='Регистраци�
             },
             body: JSON.stringify(context)
         })
-        console.log(await res.json())
+        setUser(await res.json())
     }
     return ( 
         <div className="container">
@@ -46,7 +53,9 @@ export const SignUp: FC<SignUpProps> = ({onSubmit, title ='Регистраци�
                     submitSend(email, password)
                 }
             >Готово</button>
-
+            <div>
+                {user.id? 'User from server:'+ user.email: ''}
+            </div>
         </div>
     )
 }

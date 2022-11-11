@@ -1,0 +1,8 @@
+.container{
+    display: block;
+    width: max-content;
+    margin: auto;
+    background-color: rgb(125, 197, 197);
+    padding: 10px;
+    border-radius: 5%;
+}
