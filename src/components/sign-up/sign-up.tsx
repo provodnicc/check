@@ -21,19 +21,14 @@ export const SignUp: FC<SignUpProps> = ({onSubmit, title ='Регистраци�
             email: email,
             password: password
         }
-        await $AUTH_API.post('auth/sign-up', {
-            data: JSON.stringify(context),
-            headers: {
-                'Content-Type': 'applications/json'
+        const res = await fetch('http://localhost:5000/auth/sign-up', {
+            method: 'POST',
+            headers:{
+                'Content-Type':'application/json'
             },
+            body: JSON.stringify(context)
         })
-        // fetch('http://localhost:5000/auth/sign-up', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'applications/json'
-        //     },
-        //     body: JSON.stringify(context)
-        // })
+        console.log(await res.json())
     }
     return ( 
         <div className="container">

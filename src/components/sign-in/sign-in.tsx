@@ -15,12 +15,16 @@ export const SignIn = ()=>{
             email: email,
             password: password
         }
-        await $AUTH_API.patch('auth/sign-in',{
+        const res = await fetch('http://localhost:5000/auth/sign-in', {
+            method: 'POST',
+            // mode: '?cors',
+            credentials: 'include',
             headers:{
-                'content-type': 'applications/json',
+                'Content-Type':'application/json'
             },
-            data: context
+            body: JSON.stringify(context)
         })
+        
     }
     return(
         <SignUp onSubmit={submitHandler} title={'Вход'}/>
