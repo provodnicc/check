@@ -1,0 +1,14 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-block {
+    display: flex;
+    justify-content: space-between;
+    width: max-content;
+}
+
+.nav-block div{
+    padding-right: 5%;
+}
