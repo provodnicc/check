@@ -12,14 +12,14 @@ export const Header = ()=>{
         <>
             <header className="header">
                 <div>
-                    <Link to='/'>Home</Link>
+                    <Link to='/'>Главная</Link>
                 </div>
                 <div className='nav-block'>
                     <div>
-                        <Link to='/sign-up'>SignUp</Link>
+                        <Link to='/sign-up'>Регистрация</Link>
                     </div>
                     <div>
-                        <Link to='/sign-in'>SignIn</Link>
+                        <Link to='/sign-in'>Вход</Link>
                     </div>
                 </div>
 

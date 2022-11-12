@@ -3,7 +3,7 @@ import './home.css'
 export const HomePage = ()=>{
     return (
         <>
-            {localStorage.getItem('id')!=='0'?? <div className='container'>
+            {!localStorage.getItem('email') ? window.location.replace('/sign-in') : <div className='container'>
                 <div>
                     PROFILE:
                 </div>

@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-import { $AUTH_API } from "../../hooks/api";
 import './sign-up.css'
 interface SignUpProps{
     user?: User
@@ -39,20 +38,18 @@ export const SignUp: FC<SignUpProps> = ({onSubmit, title ='Регистраци�
     }
     return ( 
         <div className="container">
-            <div>
-                {title}
+            <div className="input">
+                <input onChange={(e)=>setEmail(e.target.value) } placeholder='Введите Email тут' type="email" />
             </div>
-            <div>
-                <input onChange={(e)=>setEmail(e.target.value) } type="email" />
+            <div className="input">
+                <input onChange={(e)=>setPassword(e.target.value)} placeholder='Введите пароль здесь' type="password" />
             </div>
-            <div>
-                <input onChange={(e)=>setPassword(e.target.value)} type="password" />
-            </div>
-            <button 
+            <div 
+                className="btn"
                 onClick={()=>
                     submitSend(email, password)
                 }
-            >Готово</button>
+            >{title}</div>
             <div>
                 {user.id? 'User from server:'+ user.email: ''}
             </div>
