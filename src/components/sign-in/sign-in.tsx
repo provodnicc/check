@@ -20,7 +20,6 @@ export const SignIn = ()=>{
         }
         const res = await fetch('http://213.219.213.0:5000/auth/sign-in', {
             method: 'POST',
-            // mode: '?cors',
             credentials: 'include',
             headers:{
                 'Content-Type':'application/json'
@@ -33,7 +32,7 @@ export const SignIn = ()=>{
         localStorage.setItem('id', String(data.userDto.id))
         localStorage.setItem('email', data.userDto.email)
         if(data){
-            window.location.replace('/')
+            // window.location.replace('/')
         }
 
     }

@@ -3,7 +3,7 @@ import './home.css'
 export const HomePage = ()=>{
     return (
         <>
-            <div className='container'>
+            {localStorage.getItem('id')!=='0'?? <div className='container'>
                 <div>
                     PROFILE:
                 </div>
@@ -13,7 +13,7 @@ export const HomePage = ()=>{
                 <div>
                     email: {localStorage.getItem('email')}
                 </div>
-            </div>
+            </div>}
         </>
 
     )
